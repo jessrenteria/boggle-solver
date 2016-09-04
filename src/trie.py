@@ -15,3 +15,4 @@ class Trie:
         if len(word) == 0:
             return self.is_word
         return word[0] in self.edges and self.edges[word[0]].search(word[1:])
+
