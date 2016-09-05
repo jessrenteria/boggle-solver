@@ -16,3 +16,8 @@ class Trie:
             return self.is_word
         return word[0] in self.edges and self.edges[word[0]].search(word[1:])
 
+    def getNode(self, word):
+        if len(word) == 0:
+            return self
+        return self.edges[word[0]].getNode(word[1:]) if word[0] in self.edges else None
+
