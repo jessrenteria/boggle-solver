@@ -13,7 +13,7 @@ def buildGrid(grid_file):
     grid = []
     with open(grid_file, 'r') as f:
         for line in f:
-            line = map(lambda x: x.upper(), line.strip().split())
+            line = list(map(lambda x: x.upper(), line.strip().split()))
             grid.append(line)
     return grid
 
