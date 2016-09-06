@@ -8,7 +8,24 @@ Usage:
     python boggler.py grid_file dict_file found_file
 
 - `grid_file`: file with space separated characters representing the board
+
+        T E S T
+        P L E A
+        S E I G
+        N O R E
+
 - `dict_file`: file of newline separated valid words
+    
+        dictionary
+        words
+        should
+        be
+        like
+        this
+        with
+        Any
+        CaPitAliZaTioN
+
 - `found_file`: file to write found words
 
 Benchmarks:
