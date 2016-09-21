@@ -2,6 +2,7 @@
 A Boggle word finder written in Python 3.
 It works with rectangular boards of arbitrary dimensions.
 The output is sorted by order of decreasing length.
+An anagram word finder is also included.
 
 Usage:
 
