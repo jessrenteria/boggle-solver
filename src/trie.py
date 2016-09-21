@@ -3,6 +3,9 @@ class Trie:
         self.is_word = False
         self.edges = dict()
 
+    def isWord(self):
+        return self.is_word
+
     def addWord(self, word):
         if len(word) == 0:
             self.is_word = True

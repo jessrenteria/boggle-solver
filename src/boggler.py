@@ -1,15 +1,6 @@
-import argparse
-
 from trie import Trie
 
-def buildTrie(dict_file):
-    tree = Trie()
-    with open(dict_file, 'r') as f:
-        for word in f:
-            tree.addWord(word.strip().upper())
-    return tree
-
-def buildGrid(grid_file):
+def makeGrid(grid_file):
     grid = []
     with open(grid_file, 'r') as f:
         for line in f:
@@ -30,7 +21,7 @@ def getAllWords(grid, t):
             elem = elem[1:]
         if t == None:
             return
-        if t.is_word:
+        if t.isWord():
             words[len(s) - 1].add(s)
         for y in range(max(0, r - 1), min(len(grid), r + 2)):
             for x in range(max(0, c - 1), min(len(grid[0]), c + 2)):
@@ -43,22 +34,3 @@ def getAllWords(grid, t):
             getAllWordsHelper(used, t, "", r, c)
     return words
 
-def writeWords(found_file, words):
-    with open (found_file, 'w') as f:
-        for length in range(len(words) - 1, 0, -1):
-            for word in words[length]:
-                f.write(word + '\n')
-
-def main():
-    parser = argparse.ArgumentParser(description="Boggle Word Finder")
-    parser.add_argument('grid', type=str, help="a file containing a grid of words")
-    parser.add_argument('dict', type=str, help="a file containing a list of valid words")
-    parser.add_argument('found', type=str, help="a file to dump found words")
-    args = parser.parse_args()
-    grid = buildGrid(args.grid)
-    tree = buildTrie(args.dict)
-    words = getAllWords(grid, tree)
-    writeWords(args.found, words)
-
-if __name__ == "__main__":
-    main()
